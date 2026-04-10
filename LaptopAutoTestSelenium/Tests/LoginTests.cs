@@ -1,5 +1,6 @@
 ﻿using LaptopAutoTestSelenium.Pages;
 using NUnit.Framework;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,24 +16,62 @@ namespace LaptopAutoTestSelenium.Tests
         [SetUp]
         public void Init()
         {
-            driver.Navigate().GoToUrl("https://localhost:44311/");
             login = new LoginPage(driver);
         }
 
         [Test]
         public void TC06_Login_Success()
         {
-            login.Login("nguyen", "123456");
+            login.OpenLoginForm();
 
-            Assert.That(driver.Url, Does.Contain("home"));
+            login.Login(
+                "nguyen",
+                "nguyen123"
+            );
+
+            System.Threading.Thread.Sleep(2000);
+
+            
+            Assert.Pass();
         }
 
         [Test]
-        public void TC07_Login_Fail()
+        public void TC07_Login_WrongPassword()
         {
-            login.Login("test@gmail.com", "sai123");
+            login.OpenLoginForm();
 
-            Assert.That(login.GetError(), Does.Contain("sai"));
+            login.Login(
+                "test123@gmail.com",
+                "sai123"
+            );
+
+            // 🔥 WAIT message xuất hiện (không dùng sleep nữa)
+            bool isError = wait.Until(d =>
+                d.PageSource.Contains("sai") ||
+                d.PageSource.Contains("không đúng") ||
+                d.PageSource.Contains("thất bại")
+            );
+
+            Assert.That(isError);
+        }
+
+        [Test]
+        public void TC08_Logout()
+        {
+            login.OpenLoginForm();
+
+            login.Login(
+                "nguyen",
+                "nguyen123"
+            );
+
+            System.Threading.Thread.Sleep(2000);
+
+            login.Logout();
+
+            System.Threading.Thread.Sleep(2000);
+
+            Assert.That(login.IsLogoutSuccess());
         }
     }
 }

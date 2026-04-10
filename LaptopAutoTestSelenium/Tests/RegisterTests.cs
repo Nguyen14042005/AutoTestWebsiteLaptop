@@ -58,5 +58,67 @@ namespace LaptopAutoTestSelenium.Tests
 
             Assert.That(register.GetErrorMessage().Contains("tồn tại"));
         }
+
+        [Test]
+        public void TC03_Email_Invalid()
+        {
+            register.OpenRegisterForm();
+
+            register.Register(
+                "abcgmail.com", // sai format
+                "0123456789",
+                "user1234",
+                "123456",
+                "123456",
+                "Nguyen Van A",
+                "HCM"
+            );
+
+            System.Threading.Thread.Sleep(2000);
+
+            Assert.That(register.GetErrorMessage().Contains("email"));
+        }
+
+        [Test]
+        public void TC04_Password_Short()
+        {
+            register.OpenRegisterForm();
+
+            register.Register(
+                "new123@gmail.com",
+                "0123456789",
+                "user1234",
+                "123", // short
+                "123",
+                "Nguyen Van A",
+                "HCM"
+            );
+
+            System.Threading.Thread.Sleep(2000);
+
+            Assert.That(register.GetErrorMessage().Contains("password"));
+        }
+
+
+
+        [Test]
+        public void TC05_Confirm_Wrong()
+        {
+            register.OpenRegisterForm();
+
+            register.Register(
+                "new456@gmail.com",
+                "0123456789",
+                "user1234",
+                "123456",
+                "654321", // khác
+                "Nguyen Van A",
+                "HCM"
+            );
+
+            System.Threading.Thread.Sleep(2000);
+
+            Assert.That(register.GetErrorMessage().Contains("khớp"));
+        }
     }
 }

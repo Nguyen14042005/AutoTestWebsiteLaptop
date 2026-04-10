@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace LaptopAutoTestSelenium.Tests
     public class BaseTest
     {
         protected IWebDriver driver;
+        protected WebDriverWait wait;
 
         [SetUp]
         public void Setup()
@@ -27,6 +29,8 @@ namespace LaptopAutoTestSelenium.Tests
 
             // Wait ngầm (tránh lỗi find element)
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         }
 
         [TearDown]
