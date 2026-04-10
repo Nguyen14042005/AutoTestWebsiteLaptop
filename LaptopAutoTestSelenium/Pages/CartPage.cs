@@ -11,13 +11,13 @@ namespace LaptopAutoTestSelenium.Pages
     {
         public CartPage(IWebDriver driver) : base(driver) { }
 
-        // 🔥 PRODUCT
+     
         By firstProduct = By.ClassName("product-item");
 
-        // 🔥 DETAIL
+      
         By btnAddToCart = By.XPath("//button[contains(text(),'Thêm vào giỏ')]");
 
-        // 🔥 CART
+      
         By cartIcon = By.XPath("//a[contains(@href,'cart')]");
         By quantity = By.XPath("//input[@type='number']");
         By btnUpdate = By.XPath("//button[contains(text(),'Cập nhật')]");

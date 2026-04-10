@@ -11,11 +11,11 @@ namespace LaptopAutoTestSelenium.Pages
     {
         public LoginPage(IWebDriver driver) : base(driver) { }
 
-        // 🔥 MENU
+       
         By menuUser = By.ClassName("header-top__login");
         By btnLogin = By.XPath("//a[contains(text(),'Đăng nhập')]");
 
-        // 🔥 FORM LOGIN
+     
         By email = By.Id("txtTenDangNhap");
         By password = By.Id("txtMatKhau");
         By btnSubmit = By.XPath("//button[contains(text(),'Đăng nhập')]");
@@ -43,7 +43,6 @@ namespace LaptopAutoTestSelenium.Pages
         {
             WaitVisible(email);
 
-            // 🔥 click vào ô trước khi nhập
             Click(email);
             SendKey(email, mail);
 

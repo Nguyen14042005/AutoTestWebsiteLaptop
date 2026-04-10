@@ -45,7 +45,7 @@ namespace LaptopAutoTestSelenium.Tests
                 "sai123"
             );
 
-            // 🔥 WAIT message xuất hiện (không dùng sleep nữa)
+            
             bool isError = wait.Until(d =>
                 d.PageSource.Contains("sai") ||
                 d.PageSource.Contains("không đúng") ||

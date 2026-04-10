@@ -11,11 +11,11 @@ namespace LaptopAutoTestSelenium.Pages
     {
         public ProductPage(IWebDriver driver) : base(driver) { }
 
-        // 🔥 SEARCH
+  
         By txtSearch = By.XPath("//input[@type='text']");
         By productList = By.ClassName("product-item");
 
-        // 🔥 FILTER / SORT (có thể phải chỉnh lại theo web bạn)
+      
         By filterApple = By.XPath("//a[contains(text(),'Apple')]");
         By sortPriceDesc = By.XPath("//a[contains(text(),'Giá giảm dần')]");
 

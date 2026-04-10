@@ -147,24 +147,28 @@
   <ItemGroup>
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\CartPage.cs" />
+    <Compile Include="Pages\CheckoutPage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\OrderPage.cs" />
     <Compile Include="Pages\ProductPage.cs" />
     <Compile Include="Pages\RegisterPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\BaseTest.cs" />
     <Compile Include="Tests\CartTests.cs" />
+    <Compile Include="Tests\CheckoutTests.cs" />
     <Compile Include="Tests\LoginTests.cs" />
+    <Compile Include="Tests\OrderTests.cs" />
     <Compile Include="Tests\ProductTests.cs" />
     <Compile Include="Tests\RegisterTests.cs" />
+    <Compile Include="Utilities\DriverFactory.cs" />
+    <Compile Include="Utilities\JsonHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="TestData\users.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TestData\" />
-    <Folder Include="Utilities\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

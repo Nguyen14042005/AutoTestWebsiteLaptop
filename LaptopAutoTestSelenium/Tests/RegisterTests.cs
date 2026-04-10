@@ -33,7 +33,7 @@ namespace LaptopAutoTestSelenium.Tests
                 "HCM"
             );
 
-            // 🔥 wait 1 chút cho server xử lý
+          
             System.Threading.Thread.Sleep(2000);
 
             Assert.That(register.IsRegisterSuccess());
@@ -45,7 +45,7 @@ namespace LaptopAutoTestSelenium.Tests
             register.OpenRegisterForm();
 
             register.Register(
-                "nnguyenn2005@gmail.com", // email đã tồn tại
+                "nnguyenn2005@gmail.com", 
                 "0123456789",
                 "user1234",
                 "123456",
@@ -65,7 +65,7 @@ namespace LaptopAutoTestSelenium.Tests
             register.OpenRegisterForm();
 
             register.Register(
-                "abcgmail.com", // sai format
+                "abcgmail.com",
                 "0123456789",
                 "user1234",
                 "123456",
@@ -88,7 +88,7 @@ namespace LaptopAutoTestSelenium.Tests
                 "new123@gmail.com",
                 "0123456789",
                 "user1234",
-                "123", // short
+                "123",
                 "123",
                 "Nguyen Van A",
                 "HCM"
@@ -111,7 +111,7 @@ namespace LaptopAutoTestSelenium.Tests
                 "0123456789",
                 "user1234",
                 "123456",
-                "654321", // khác
+                "654321", 
                 "Nguyen Van A",
                 "HCM"
             );

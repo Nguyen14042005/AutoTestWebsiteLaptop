@@ -11,11 +11,11 @@ namespace LaptopAutoTestSelenium.Pages
     {
         public RegisterPage(IWebDriver driver) : base(driver) { }
 
-        // MENU
+ 
         By menuUser = By.ClassName("header-top__login");
         By btnRegister = By.CssSelector("a[onclick*='DangKyTK']");
 
-        // FORM
+     
         By email = By.XPath("//input[@placeholder='Email...']");
         By phone = By.XPath("//input[@placeholder='Số điện thoại']");
         By username = By.XPath("//input[@placeholder='Tài khoản']");
@@ -23,7 +23,7 @@ namespace LaptopAutoTestSelenium.Pages
         By confirm = By.XPath("(//input[@placeholder='Mật khẩu từ 6 đến 32 ký tự'])[2]");
         By fullname = By.XPath("//input[@placeholder='Nhập họ tên']");
 
-        // 🔥 DOB FIX CHUẨN (theo label)
+     
         By dob = By.XPath("//label[contains(text(),'NGÀY SINH')]/following::input[1]");
 
         By address = By.XPath("//textarea");
@@ -55,7 +55,6 @@ namespace LaptopAutoTestSelenium.Pages
             SendKey(confirm, cf);
             SendKey(fullname, name);
 
-            // DOB bằng JS (tránh datepicker)
             ((IJavaScriptExecutor)driver)
                 .ExecuteScript("arguments[0].value='01/01/2000';", driver.FindElement(dob));
 
@@ -64,7 +63,6 @@ namespace LaptopAutoTestSelenium.Pages
             Click(btnSubmit);
         }
 
-        // 🔥 ASSERT CHUẨN
         public bool IsRegisterSuccess()
         {
             return driver.PageSource.Contains("thành công")

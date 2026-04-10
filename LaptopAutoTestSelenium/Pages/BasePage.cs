@@ -25,7 +25,7 @@ namespace LaptopAutoTestSelenium.Pages
             return wait.Until(d => d.FindElement(by));
         }
 
-        // 🔥 FIX CLICK (tránh bị che / overlay)
+        
         protected void Click(By by)
         {
             var element = WaitElement(by);
@@ -36,7 +36,7 @@ namespace LaptopAutoTestSelenium.Pages
                 .ExecuteScript("arguments[0].click();", element);
         }
 
-        // 🔥 FIX NHẬP LIỆU (QUAN TRỌNG NHẤT)
+        
         protected void SendKey(By by, string text)
         {
             var element = wait.Until(d =>
@@ -54,20 +54,20 @@ namespace LaptopAutoTestSelenium.Pages
             }
             catch
             {
-                // fallback nếu SendKeys fail (popup/web động)
+                
                 ((IJavaScriptExecutor)driver)
                     .ExecuteScript("arguments[0].value='" + text + "';", element);
             }
         }
 
-        // 🔥 HOVER (cho dropdown menu)
+     
         protected void Hover(By by)
         {
             Actions action = new Actions(driver);
             action.MoveToElement(WaitElement(by)).Perform();
         }
 
-        // 🔥 WAIT HIỆN
+        
         protected void WaitVisible(By by)
         {
             wait.Until(d => d.FindElement(by).Displayed);

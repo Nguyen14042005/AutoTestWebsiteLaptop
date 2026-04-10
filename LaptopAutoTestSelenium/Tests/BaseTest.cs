@@ -18,16 +18,13 @@ namespace LaptopAutoTestSelenium.Tests
         [SetUp]
         public void Setup()
         {
-            // Khởi tạo Chrome
+          
             driver = new ChromeDriver();
 
-            // Mở web localhost của bạn
             driver.Navigate().GoToUrl("https://localhost:44311/");
 
-            // Max màn hình
             driver.Manage().Window.Maximize();
 
-            // Wait ngầm (tránh lỗi find element)
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
@@ -36,7 +33,6 @@ namespace LaptopAutoTestSelenium.Tests
         [TearDown]
         public void TearDown()
         {
-            // Đóng browser sau mỗi test
             driver.Quit();
         }
     }

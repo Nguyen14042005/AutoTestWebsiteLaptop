@@ -15,6 +15,16 @@ namespace LaptopAutoTestSelenium.Tests
         {
             CartPage cart = new CartPage(driver);
 
+            LoginPage login = new LoginPage(driver);
+            login.OpenLoginForm();
+
+            login.Login(
+                "nguyen",
+                "nguyen123"
+            );
+
+            System.Threading.Thread.Sleep(2000);
+
             cart.OpenFirstProduct();
             System.Threading.Thread.Sleep(2000);
 
@@ -31,6 +41,14 @@ namespace LaptopAutoTestSelenium.Tests
         public void TC18_AddSameProduct()
         {
             CartPage cart = new CartPage(driver);
+            LoginPage login = new LoginPage(driver);
+            login.OpenLoginForm();
+
+            login.Login(
+                "nguyen",
+                "nguyen123"
+            );
+
 
             cart.OpenFirstProduct();
             cart.AddToCart();
@@ -46,6 +64,14 @@ namespace LaptopAutoTestSelenium.Tests
         public void TC19_UpdateQuantity()
         {
             CartPage cart = new CartPage(driver);
+            LoginPage login = new LoginPage(driver);
+            login.OpenLoginForm();
+
+            login.Login(
+                "nguyen",
+                "nguyen123"
+            );
+
 
             cart.OpenCart();
             cart.UpdateQuantity("5");
@@ -59,6 +85,14 @@ namespace LaptopAutoTestSelenium.Tests
         public void TC20_DeleteItem()
         {
             CartPage cart = new CartPage(driver);
+            LoginPage login = new LoginPage(driver);
+            login.OpenLoginForm();
+
+            login.Login(
+                "nguyen",
+                "nguyen123"
+            );
+
 
             cart.OpenCart();
             cart.DeleteItem();
@@ -72,6 +106,14 @@ namespace LaptopAutoTestSelenium.Tests
         public void TC21_EmptyCart()
         {
             CartPage cart = new CartPage(driver);
+            LoginPage login = new LoginPage(driver);
+            login.OpenLoginForm();
+
+            login.Login(
+                "nguyen",
+                "nguyen123"
+            );
+
 
             cart.OpenCart();
 
@@ -83,6 +125,14 @@ namespace LaptopAutoTestSelenium.Tests
         public void TC22_ClearCart()
         {
             CartPage cart = new CartPage(driver);
+            LoginPage login = new LoginPage(driver);
+            login.OpenLoginForm();
+
+            login.Login(
+                "nguyen",
+                "nguyen123"
+            );
+
 
             cart.OpenCart();
             cart.ClearCart();
@@ -96,6 +146,14 @@ namespace LaptopAutoTestSelenium.Tests
         public void TC23_InvalidQuantity_Negative()
         {
             CartPage cart = new CartPage(driver);
+            LoginPage login = new LoginPage(driver);
+            login.OpenLoginForm();
+
+            login.Login(
+                "nguyen",
+                "nguyen123"
+            );
+
 
             cart.OpenCart();
             cart.UpdateQuantity("-1");
@@ -111,6 +169,14 @@ namespace LaptopAutoTestSelenium.Tests
         public void TC24_Quantity_Exceed()
         {
             CartPage cart = new CartPage(driver);
+            LoginPage login = new LoginPage(driver);
+            login.OpenLoginForm();
+
+            login.Login(
+                "nguyen",
+                "nguyen123"
+            );
+
 
             cart.OpenCart();
             cart.UpdateQuantity("999");
@@ -126,6 +192,14 @@ namespace LaptopAutoTestSelenium.Tests
         public void TC25_ContinueShopping()
         {
             CartPage cart = new CartPage(driver);
+            LoginPage login = new LoginPage(driver);
+            login.OpenLoginForm();
+
+            login.Login(
+                "nguyen",
+                "nguyen123"
+            );
+
 
             cart.OpenCart();
             cart.ContinueShopping();
@@ -134,6 +208,26 @@ namespace LaptopAutoTestSelenium.Tests
 
             Assert.That(driver.Url.Contains("san-pham")
                        || driver.PageSource.Contains("Sản phẩm"));
+        }
+
+
+        [Test]
+        public void TC26_CheckTotal()
+        {
+            CartPage cart = new CartPage(driver);
+            LoginPage login = new LoginPage(driver);
+            login.OpenLoginForm();
+
+            login.Login(
+                "nguyen",
+                "nguyen123"
+            );
+
+
+            cart.OpenCart();
+
+            Assert.That(cart.GetPageText().Contains("Tổng"));
+           
         }
     }
 }

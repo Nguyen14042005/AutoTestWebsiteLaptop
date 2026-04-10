@@ -1,0 +1,74 @@
+﻿{
+  "register": {
+    "valid": {
+      "email": "test_auto_1@gmail.com",
+      "phone": "0123456789",
+      "username": "user_auto_1",
+      "password": "123456",
+      "confirm": "123456",
+      "fullname": "Nguyen Van A",
+      "address": "HCM"
+    },
+    "email_exists": {
+      "email": "nnguyenn2005@gmail.com"
+    },
+    "invalid_email": {
+      "email": "abcgmail.com"
+    },
+    "short_password": {
+      "password": "123"
+    },
+    "wrong_confirm": {
+      "password": "123456",
+      "confirm": "654321"
+    }
+  },
+
+  "login": {
+    "valid": {
+      "email": "nguyen",
+      "password": "nguyen123"
+    },
+    "invalid": {
+      "email": "test_auto_1@gmail.com",
+      "password": "sai123"
+    }
+  },
+
+  "product": {
+    "search_valid": "Dell",
+    "search_invalid": "@@@",
+    "filter_brand": "Apple",
+    "price_range": "10-20"
+  },
+
+  "cart": {
+    "add_quantity": 1,
+    "update_quantity": 5,
+    "invalid_negative": -1,
+    "invalid_large": 999
+  },
+
+  "checkout": {
+    "valid": {
+      "phone": "0123456789",
+      "address": "HCM",
+      "coupon": "LAPTOP10"
+    },
+    "missing_phone": {
+      "phone": "",
+      "address": "HCM"
+    },
+    "invalid_phone": {
+      "phone": "abc123",
+      "address": "HCM"
+    },
+    "expired_coupon": "EXPIRED",
+    "far_address": "Hà Nội"
+  },
+
+  "order": {
+    "has_order": true,
+    "order_id": "1"
+  }
+}
